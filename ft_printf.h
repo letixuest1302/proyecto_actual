@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 12:09:14 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/14 15:44:55 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/14 15:46:16 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include  <stdarg.h>
+# include <stdarg.h>
 # include <stdint.h>
 # include <stdio.h>
 
@@ -37,3 +37,5 @@ int	ft_isalpha(int c);
 size_t	ft_strlen(const char *line);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+
+#endif
