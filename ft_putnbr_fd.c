@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 14:54:51 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/14 15:22:41 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/14 16:17:14 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_putnbr_fd(long n, int fd, int *count)
 	nbr = n;
 	if (n == -2147483648)
 	{
-		*count = write(fd, "-2147483648", 11);
-		return (*count);
+		write(fd, "-2147483648", 11);
+		return (11);
 	}
 	if (nbr < 0)
 	{
