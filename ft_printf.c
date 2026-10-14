@@ -3,11 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lesainz <lesainz@student.42madrid.com      +#+  +:+       +#+        */
+/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 12:13:28 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/14 12:13:40 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/14 15:37:21 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
+int	ft_printf(char const *, ...)
