@@ -22,9 +22,9 @@
 
 char	*ft_tolowercase(char *s);
 char	*ft_touppercase(char *s);
-char	ft_itoah(unsigned long n);
+char	*ft_itoah(unsigned long original_num)
 
-int	ft_printf(char const *, ...);
+int	ft_printf(const char *phr, ...)
 int	ft_putchar(char c);
 int	ft_putnbr(long i);
 int	ft_putstr(char *s);
