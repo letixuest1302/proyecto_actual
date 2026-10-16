@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 14:54:51 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/16 13:54:10 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/16 13:56:42 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_putnbr_fd(long n, int fd, int *count)
 	*count += write(fd, &nbr, 1);
 	return (*count);
 }
-
 /*
 #include "ft_printf.h"
 
