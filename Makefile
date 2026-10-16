@@ -6,7 +6,7 @@
 #    By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/14 12:08:49 by lesainz           #+#    #+#              #
-#    Updated: 2026/10/14 14:40:44 by lesainz          ###   ########.fr        #
+#    Updated: 2026/10/16 11:29:19 by lesainz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,17 +17,26 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 REM = rm -vf
 
-SRCS = /*meter funciones*/
-
+SRCS = ft_hexadez.c \
+	ft_printf.c \
+	ft_putnbr_fd.c \
+	ft_strlen.c \
+	ft_isalpha.c \
+	ft_putstr_fd.c \
+	ft_tolower.c \
+	ft_loweryuppercase.c \
+	ft_putchar_fd.c \
+	ft_putthing.c \
+	ft_toupper.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c libft.h
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

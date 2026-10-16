@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 14:51:39 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/14 15:40:39 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/16 12:19:47 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,32 @@ int	ft_putstr(char *s)
 		return (ft_putstr("(null)"));
 	ft_putstr_fd(s, 1);
 	return (ft_strlen(s));
+}
+
+int	ft_putstrm(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (ft_putstr("(null)"));
+	ft_putstr_fd(s, 1);
+	i = ft_strlen(s);
+	free(s);
+	return (i);
+}
+
+int	ft_putdir(unsigned long p)
+{
+	int		i;
+	char	*s;
+
+	i = 0;
+	if (!p)
+		return (ft_putstr("(null)"));
+	s = ft_itoah(p);
+	i += ft_putstr("0x");
+	i += ft_putstr(ft_tolowercase(s));
+	free(s);
+	return (i);
 }
