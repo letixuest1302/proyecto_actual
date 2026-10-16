@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 14:51:39 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/16 12:19:47 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/16 13:53:41 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_putdir(unsigned long p)
 
 	i = 0;
 	if (!p)
-		return (ft_putstr("(null)"));
+		return (ft_putstr("(nil)"));
 	s = ft_itoah(p);
 	i += ft_putstr("0x");
 	i += ft_putstr(ft_tolowercase(s));

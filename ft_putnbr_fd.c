@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 14:54:51 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/14 16:17:14 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/16 13:54:10 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 int	ft_putnbr_fd(long n, int fd, int *count)
 {
-	char	nbr;
+	unsigned long	num;
+	char			nbr;
 
 	if (fd < 0)
 		return (0);
-	nbr = n;
-	if (n == -2147483648)
+	if (n < 0)
 	{
-		write(fd, "-2147483648", 11);
-		return (11);
+		*count += write(fd, "-", 1);
+		num = (unsigned long)n;
+		num = -num;
 	}
-	if (nbr < 0)
-	{
-		*count = write(fd, "-", 1);
-		nbr = -nbr;
-	}
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd, count);
-	nbr = 48 + (n % 10);
+	else
+		num = n;
+	if (num >= 10)
+		ft_putnbr_fd(num / 10, fd, count);
+	nbr = (num % 10) + '0';
 	*count += write(fd, &nbr, 1);
-	return (*count)
+	return (*count);
 }
+
 /*
 #include "ft_printf.h"
 

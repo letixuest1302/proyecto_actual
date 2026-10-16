@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 14:52:49 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/14 15:34:20 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/16 13:10:32 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ char	*ft_tolowercase(char *s)
 		s[i] = ft_tolower(s[i]);
 		i++;
 	}
+	return (s);
 }
+
 char	*ft_touppercase(char *s)
 {
 	int	i;
@@ -33,4 +35,5 @@ char	*ft_touppercase(char *s)
 		s[i] = ft_toupper(s[i]);
 		i++;
 	}
+	return (s);
 }
