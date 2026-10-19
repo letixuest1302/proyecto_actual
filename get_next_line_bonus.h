@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/14 14:55:25 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/14 14:57:33 by lesainz          ###   ########.fr       */
+/*   Created: 2026/10/19 14:51:37 by lesainz           #+#    #+#             */
+/*   Updated: 2026/10/19 15:59:35 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (!s || fd < 0)
-	{
-		return ;
-	}
-	write(fd, s, ft_strlen(s));
-}
-/*
-int main(void)
-{
-    ft_putstr_fd("Hola descriptor\n", 1);
-    return (0);
-}*/
+# include <unistd.h>
+# include <stdlib.h>
+# include <stddef.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2
+# endif

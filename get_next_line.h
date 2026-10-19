@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_loweryuppercase.c                               :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/14 14:52:49 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/16 13:10:32 by lesainz          ###   ########.fr       */
+/*   Created: 2026/10/19 14:51:43 by lesainz           #+#    #+#             */
+/*   Updated: 2026/10/19 15:59:17 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_tolowercase(char *s)
-{
-	int	i;
+# include <unistd.h>
+# include <stdlib.h>
+# include <stddef.h>
 
-	i = 0;
-	while (s[i])
-	{
-		s[i] = ft_tolower(s[i]);
-		i++;
-	}
-	return (s);
-}
-
-char	*ft_touppercase(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		s[i] = ft_toupper(s[i]);
-		i++;
-	}
-	return (s);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2
+# endif
