@@ -3,11 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lesainz <lesainz@student.42madrid.com      +#+  +:+       +#+        */
+/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:07 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/19 14:51:09 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/19 16:07:55 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "get_next_line_bonus.h"

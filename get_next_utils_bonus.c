@@ -6,8 +6,8 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:52:33 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/19 14:52:34 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/19 16:08:10 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "get_next_line_bonus.h"
