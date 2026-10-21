@@ -6,47 +6,47 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:07 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 10:35:16 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 11:20:43 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char *join(char *pack, char *read_text, int bytes_read)
+static char	*join(char *pack, char *txtrea, int byrea)
 {
-    char    *combined_text;
+	char	*mixrea;
 
-    read_text[bytes_read] = 0;
-    if (!pack)
-        combined_text = ft_strdup(read_text);
-    else
-    {
-        combined_text = ft_strjoin(pack, read_text);
-        free(pack);
-    }
-    if (!combined_text)
-        free(read_text);
-    return (combined_text);
+	txtrea[byrea] = '\0';
+	if (!pack)
+		mixrea = ft_substr(txtrea, ft_strlen(txtrea));
+	else
+	{
+		mixrea = ft_strjoin(pack, txtrea);
+		free(pack);
+	}
+	if (!mixrea)
+		free(txtrea);
+	return (mixrea);
 }
 
 static char	*gline(char *pack)
 {
-	char	*extracted_line;
-	char	*newline_position;
+	char	*extractedline;
+	char	*newlinepos;
 
 	if (!pack || !pack[0])
 		return (NULL);
-	newline_position = ft_strchr(pack, '\n');
-	if (newline_position)
-		extracted_line = ft_substr(pack, 1 + newline_position - pack);
+	newlinepos = ft_strchr(pack, '\n');
+	if (newlinepos)
+		extractedline = ft_substr(pack, 1 + newlinepos - pack);
 	else
-		extracted_line = ft_substr(pack, ft_strlen(pack));
-	if (!extracted_line)
+		extractedline = ft_substr(pack, ft_strlen(pack));
+	if (!extractedline)
 	{
-		free (pack);
+		free(pack);
 		pack = NULL;
 	}
-	return (extracted_line);
+	return (extractedline);
 }
 
 static char	*nline(char *pack)
@@ -75,25 +75,24 @@ static char	*reader(int fd, char *pack)
 	char	*read_buffer;
 
 	bytes_read = 1;
-	read_buffer = malloc(sizeof (char) * (BUFFER_SIZE + 1));
+	read_buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!read_buffer)
+		return (NULL);
 	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, read_buffer, BUFFER_SIZE);
 		if (bytes_read <= 0)
 		{
-			going_free(read_buffer, NULL);
+			free(read_buffer);
 			if (bytes_read == 0)
 				return (pack);
 			return (going_free(pack, NULL));
 		}
 		pack = join(pack, read_buffer, bytes_read);
-		if (!pack)
-			return (NULL);
-		else if (ft_strchr(pack, '\n'))
+		if (!pack || ft_strchr(pack, '\n'))
 			return (going_free(read_buffer, pack));
 	}
 	free(read_buffer);
-	read_buffer = NULL;
 	return (pack);
 }
 
@@ -103,14 +102,10 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-	{
 		return (NULL);
-	}
 	pack[fd] = reader(fd, pack[fd]);
 	if (!pack[fd])
-	{
 		return (NULL);
-	}
 	line = gline(pack[fd]);
 	pack[fd] = nline(pack[fd]);
 	return (line);

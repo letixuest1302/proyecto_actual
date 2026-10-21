@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:19 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 10:15:53 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 11:00:15 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *str, int chrFind)
 
 	if (!str)
 		return (NULL);
-	pointer = (char *) str;
+	pointer = (char *)str;
 	while (*pointer && *pointer != chrFind)
 		pointer++;
 	if (*pointer == chrFind)
@@ -62,34 +62,27 @@ char	*ft_substr(char *str, size_t length)
 	return (substr);
 }
 
-char	*ft_strjoin(char const *firstring, char const *secondstr)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t		total_length;
-	char		*result_str;
-	long long	count;
-	int			aux_index;
+	size_t	len;
+	char	*res;
+	size_t	i;
+	size_t	j;
 
-	count = -1;
-	if (!firstring && !secondstr)
+	if (!s1 || !s2)
 		return (NULL);
-	if (!secondstr)
-		return (ft_substr((char *)firstring, ft_strlen(firstring)));
-	if (!firstring)
-		return (ft_substr((char *)secondstr, ft_strlen(secondstr)));
-	
-	total_length = ft_strlen(firstring) + ft_strlen(secondstr);
-	result_str = malloc(sizeof (char) * (total_length + 1));
-	if (!result_str)
+	len = ft_strlen(s1) + ft_strlen(s2);
+	res = malloc(sizeof(char) * (len + 1));
+	if (!res)
 		return (NULL);
-		
-	while (++count > -1 && firstring[count])
-		result_str[count] = firstring[count];
-	aux_index = count;
-	count = -1;
-	while (++count > -1 && secondstr[count])
-		result_str[count + aux_index] = secondstr[count];
-	result_str[total_length] = '\0';
-	return (result_str);
+	i = -1;
+	while (s1[++i])
+		res[i] = s1[i];
+	j = -1;
+	while (s2[++j])
+		res[i + j] = s2[j];
+	res[len] = '\0';
+	return (res);
 }
 
 void	*going_free(char *fltofree, char *buftoreturn)
