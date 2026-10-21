@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_utils_bonus.c                             :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:52:33 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 13:02:31 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 16:22:36 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	*ft_strjoin(char const *str1, char const *str2)
 	return (result_str);
 }
 
-void	*going_free(char *fltofree, char *buftoreturn)
+void	*going_fre(char *fltofree, char *buftoreturn)
 {
 	if (fltofree)
 		free(fltofree);

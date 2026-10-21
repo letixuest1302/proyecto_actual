@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:07 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 11:24:05 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 16:21:57 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ static char	*reader(int fd, char *pack)
 			free(read_buffer);
 			if (by_read == 0)
 				return (pack);
-			return (going_free(pack, NULL));
+			return (going_fre(pack, NULL));
 		}
 		pack = join(pack, read_buffer, by_read);
 		if (!pack || ft_strchr(pack, '\n'))
-			return (going_free(read_buffer, pack));
+			return (going_fre(read_buffer, pack));
 	}
 	free(read_buffer);
 	return (pack);

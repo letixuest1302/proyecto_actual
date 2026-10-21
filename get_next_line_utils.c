@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:19 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 11:25:20 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 16:22:06 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-void	*going_free(char *fltofree, char *buftoreturn)
+void	*going_fre(char *fltofree, char *buftoreturn)
 {
 	if (fltofree)
 		free(fltofree);

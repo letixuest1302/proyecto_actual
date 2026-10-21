@@ -14,7 +14,7 @@ La función utiliza la macro BUFFER_SIZE para determinar cuántos bytes se leen 
 
 Compilación básica:
 
-cc -Wall -Werror -Wextra get_next_line.c get_next_line_utils.c -o gnl
+cc -Wall -Werror -Wextra get_next_line.c get_next_line_utils.c 
 
 
 ## Recursos 

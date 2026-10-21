@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 12:53:57 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 15:35:29 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 16:25:14 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*join(char *pack, char *read_now, int by_read)
 	if (!pack)
 		temp = ft_substr(read_now, ft_strlen(read_now));
 	else
-		temp = going_free(pack, ft_strjoin(pack, read_now));
+		temp = going_fre(pack, ft_strjoin(pack, read_now));
 	if (!temp)
 		free(read_now);
 	return (temp);
@@ -88,7 +88,7 @@ static char	*reader(int fd, char *pack)
 		}
 		pack = join(pack, tempbrick, by_read);
 		if (!pack || ft_strchr(pack, '\n'))
-			return (going_free(tempbrick, pack));
+			return (going_fre(tempbrick, pack));
 	}
 	free(tempbrick);
 	return (pack);
@@ -108,8 +108,7 @@ char	*get_next_line(int fd)
 	pack = nline(pack);
 	return (lnow);
 }
-
-
+/*
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -119,9 +118,12 @@ int main(void)
     char    *line;
 
     fd = open("prueba.txt", O_RDONLY);
-    line = get_next_line(fd);
-    printf("%s", line);
-    free(line);
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("%s", line);
+        free(line);
+    }
     close(fd);
     return (0);
 }
+*/

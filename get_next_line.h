@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:43 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 15:33:32 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 16:22:19 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int chrfind);
 char	*ft_substr(char *str, size_t length);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_next_line(int fd);
 
-void	*going_free(char *fltofree, char *buftoreturn);
+void	*going_fre(char *fltofree, char *buftoreturn);
 
 #endif 
