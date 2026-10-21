@@ -6,118 +6,118 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:48:31 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/20 18:30:37 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 10:12:54 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*reader(int fd, char *backpack)
+static char	*reader(int fd, char *pack)
 {
-	int		bytes_leidos;
-	char	*bloque_temporal;
+	int		by_read;
+	char	*temporal_brick;
 
-	bytes_leidos = 1;
-	bloque_temporal = malloc(sizeof (char) * (BUFFER_SIZE + 1)); // Reservamos un vaso para leer
+	by_read = 1;
+	temporal_brick = malloc(sizeof (char) * (BUFFER_SIZE + 1)); // Reservamos un vaso para leer
 	
-	while (bytes_leidos > 0)
+	while (by_read > 0)
 	{
-		bytes_leidos = read(fd, bloque_temporal, BUFFER_SIZE); // Leemos un trozo
-		if (bytes_leidos <= 0)
+		by_read = read(fd, temporal_brick, BUFFER_SIZE); // Leemos un trozo
+		if (by_read <= 0)
 		{
-			going_free(bloque_temporal, NULL);
-			if (bytes_leidos == 0)
-				return (backpack); // Si llegamos al final del fd, devolvemos lo que tengamos
-			free (backpack);
+			going_free(temporal_brick, NULL);
+			if (by_read == 0)
+				return (pack); // Si llegamos al final del fd, devolvemos lo que tengamos
+			free (pack);
 			return (NULL);
 		}
-		backpack = join(backpack, bloque_temporal, bytes_leidos); // Juntamos lo leído con lo que ya teníamos
-		if (!backpack)
+		pack = join(pack, temporal_brick, by_read); // Juntamos lo leído con lo que ya teníamos
+		if (!pack)
 			return (NULL);
-		else if (ft_strchr(backpack, '\n')) // Si ya encontramos un salto de línea, paramos de leer
-			return (going_free(bloque_temporal, backpack));
+		else if (ft_strchr(pack, '\n')) // Si ya encontramos un salto de línea, paramos de leer
+			return (going_free(temporal_brick, pack));
 	}
-	free(bloque_temporal);
-	return (backpack);
+	free(temporal_brick);
+	return (pack);
 }
 
-static char	*join(char *backpack, char *leido_ahora, int bytes_leidos)
+static char	*join(char *pack, char *read_now, int by_read)
 {
 	char	*temp;
 
-	leido_ahora[bytes_leidos] = 0; // Marcamos el final de la cadena
-	if (!backpack)
-		temp = ft_substr(leido_ahora, ft_strlen(leido_ahora)); // Si la backpack estaba vacía, copiamos lo nuevo
+	read_now[by_read] = 0; // Marcamos el final de la cadena
+	if (!pack)
+		temp = ft_substr(read_now, ft_strlen(read_now)); // Si la pack estaba vacía, copiamos lo nuevo
 	else
-		temp = going_free(backpack, ft_strjoin(backpack, leido_ahora)); // Si ya tenía cosas, las unimos
+		temp = going_free(pack, ft_strjoin(pack, read_now)); // Si ya tenía cosas, las unimos
 	
 	if (!temp)
-		free (leido_ahora);
+		free (read_now);
 	return (temp);
 }
 
-static char	*gline(char *backpack)
+static char	*gline(char *pack)
 {
-	char	*linea_actual;
-	char	*posicion_salto;
+	char	*current_line;
+	char	*nlFinder;
 
-	if (!backpack || !backpack[0])
+	if (!pack || !pack[0])
 		return (NULL);
 	
-	posicion_salto = ft_strchr(backpack, '\n'); // Buscamos dónde está el enter
+	nlFinder = ft_strchr(pack, '\n'); // Buscamos dónde está el enter
 	
-	if (posicion_salto)
-		linea_actual = ft_substr(backpack, 1 + posicion_salto - backpack); // Cortamos hasta el enter
+	if (nlFinder)
+		current_line = ft_substr(pack, 1 + nlFinder - pack); // Cortamos hasta el enter
 	else
-		linea_actual = ft_substr(backpack, ft_strlen(backpack)); // Si no hay enter, devolvemos todo lo que queda
+		current_line = ft_substr(pack, ft_strlen(pack)); // Si no hay enter, devolvemos todo lo que queda
 		
-	if (!linea_actual)
+	if (!current_line)
 	{
-		free (backpack);
-		backpack = NULL;
+		free (pack);
+		pack = NULL;
 	}
-	return (linea_actual);
+	return (current_line);
 }
 
-static char	*nline(char *backpack)
+static char	*nline(char *pack)
 {
-	char	*sobrante;
+	char	*excess;
 
-	if (!backpack[0] || (backpack[0] == '\n' && !backpack[1]))
+	if (!pack[0] || (pack[0] == '\n' && !pack[1]))
 	{
-		free(backpack);
+		free(pack);
 		return (NULL);
 	}
 	
-	sobrante = ft_strchr(backpack, '\n');
-	if (sobrante)
+	excess = ft_strchr(pack, '\n');
+	if (excess)
 	{
-		if (*sobrante == '\n')
-			sobrante++; // Avanzamos justo después del enter
-		sobrante = ft_substr(sobrante, ft_strlen(sobrante)); // Guardamos el resto
+		if (*excess == '\n')
+			excess++; // Avanzamos justo después del enter
+		excess = ft_substr(excess, ft_strlen(excess)); // Guardamos el resto
 	}
-	free(backpack); // Liberamos la mochila vieja
-	return (sobrante); // Devolvemos la mochila actualizada con el sobrante
+	free(pack); // Liberamos la mochila vieja
+	return (excess); // Devolvemos la mochila actualizada con el excess
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*backpack; // Nuestra memoria que no se borra entre llamadas
-	char		*linea_actual;
+	static char	*pack; // Nuestra memoria que no se borra entre llamadas
+	char		*current_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	
-	// 1. Leemos del fd hasta tener al menos una línea completa en la backpack
-	backpack = reader(fd, backpack);
-	if (!backpack)
+	// 1. Leemos del fd hasta tener al menos una línea completa en la pack
+	pack = reader(fd, pack);
+	if (!pack)
 		return (NULL);
 	
 	// 2. Cortamos y sacamos la línea limpia que vamos a devolver
-	linea_actual = gline(backpack);
+	current_line = gline(pack);
 	
-	// 3. Limpiamos la backpack: quitamos la línea ya leída y dejamos solo lo sobrante
-	backpack = nline(backpack);
+	// 3. Limpiamos la pack: quitamos la línea ya leída y dejamos solo lo excess
+	pack = nline(pack);
 	
-	return (linea_actual);
+	return (current_line);
 }
