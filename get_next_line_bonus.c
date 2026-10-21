@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:07 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 11:20:43 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 11:24:05 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,44 +51,44 @@ static char	*gline(char *pack)
 
 static char	*nline(char *pack)
 {
-	char	*remainder_text;
+	char	*remaindertxt;
 
 	if (!pack[0] || (pack[0] == '\n' && !pack[1]))
 	{
 		free(pack);
 		return (NULL);
 	}
-	remainder_text = ft_strchr(pack, '\n');
-	if (remainder_text)
+	remaindertxt = ft_strchr(pack, '\n');
+	if (remaindertxt)
 	{
-		if (*remainder_text == '\n')
-			remainder_text++;
-		remainder_text = ft_substr(remainder_text, ft_strlen(remainder_text));
+		if (*remaindertxt == '\n')
+			remaindertxt++;
+		remaindertxt = ft_substr(remaindertxt, ft_strlen(remaindertxt));
 	}
 	free(pack);
-	return (remainder_text);
+	return (remaindertxt);
 }
 
 static char	*reader(int fd, char *pack)
 {
-	int		bytes_read;
+	int		by_read;
 	char	*read_buffer;
 
-	bytes_read = 1;
+	by_read = 1;
 	read_buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!read_buffer)
 		return (NULL);
-	while (bytes_read > 0)
+	while (by_read > 0)
 	{
-		bytes_read = read(fd, read_buffer, BUFFER_SIZE);
-		if (bytes_read <= 0)
+		by_read = read(fd, read_buffer, BUFFER_SIZE);
+		if (by_read <= 0)
 		{
 			free(read_buffer);
-			if (bytes_read == 0)
+			if (by_read == 0)
 				return (pack);
 			return (going_free(pack, NULL));
 		}
-		pack = join(pack, read_buffer, bytes_read);
+		pack = join(pack, read_buffer, by_read);
 		if (!pack || ft_strchr(pack, '\n'))
 			return (going_free(read_buffer, pack));
 	}

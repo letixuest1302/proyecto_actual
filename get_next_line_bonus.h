@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:37 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/19 15:59:35 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 13:02:51 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,3 +20,13 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 2
 # endif
+
+size_t	ft_strlen(const char *str);
+
+char	*ft_strchr(const char *str, int chrfind);
+char	*ft_substr(char *str, size_t length);
+char	*ft_strjoin(char const *s1, char const *s2);
+
+void	*going_free(char *fltofree, char *buftoreturn);
+
+#endif

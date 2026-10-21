@@ -6,93 +6,93 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:52:33 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 11:20:01 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 13:02:31 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strchr(const char *string, int character_to_find)
+char	*ft_strchr(const char *str, int chrfind)
 {
 	char	*pointer;
 
-	if (!string)
+	if (!str)
 		return (NULL);
-	pointer = (char *) string;
-	while (*pointer && *pointer != character_to_find)
+	pointer = (char *) str;
+	while (*pointer && *pointer != chrfind)
 		pointer++;
-	if (*pointer == character_to_find)
+	if (*pointer == chrfind)
 		return (pointer);
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *string)
+size_t	ft_strlen(const char *str)
 {
 	size_t	index;
 
-	if (!string)
+	if (!str)
 		return (0);
 	index = 0;
-	while (string[index])
+	while (str[index])
 		index++;
 	return (index);
 }
 
-char	*ft_substr(char *string, size_t length)
+char	*ft_substr(char *str, size_t length)
 {
-	char	*substring;
-	size_t	position;
-	size_t	string_len;
+	char	*substr;
+	size_t	pos;
+	size_t	str_len;
 
-	if (!string)
+	if (!str)
 		return (NULL);
-	string_len = ft_strlen(string);
-	if (length > string_len)
-		length = string_len;
-	substring = malloc(length + 1);
-	if (!substring)
+	str_len = ft_strlen(str);
+	if (length > str_len)
+		length = str_len;
+	substr = malloc(length + 1);
+	if (!substr)
 		return (NULL);
-	position = 0;
-	while (position < length)
+	pos = 0;
+	while (pos < length)
 	{
-		substring[position] = string[position];
-		position++;
+		substr[pos] = str[pos];
+		pos++;
 	}
-	substring[position] = '\0';
-	return (substring);
+	substr[pos] = '\0';
+	return (substr);
 }
 
-char	*ft_strjoin(char const *first_string, char const *second_string)
+char	*ft_strjoin(char const *str1, char const *str2)
 {
-	size_t		total_length;
-	char		*result_string;
+	size_t		tot_length;
+	char		*result_str;
 	long long	count;
 	int			aux_index;
 
 	count = -1;
-	if (!first_string && !second_string)
+	if (!str1 && !str2)
 		return (NULL);
-	if (!second_string)
-		return (ft_substr((char *)first_string, ft_strlen(first_string)));
-	if (!first_string)
-		return (ft_substr((char *)second_string, ft_strlen(second_string)));
-	total_length = ft_strlen(first_string) + ft_strlen(second_string);
-	result_string = malloc(sizeof (char) * (total_length + 1));
-	if (!result_string || (!first_string && !second_string))
+	if (!str2)
+		return (ft_substr((char *)str1, ft_strlen(str1)));
+	if (!str1)
+		return (ft_substr((char *)str2, ft_strlen(str2)));
+	tot_length = ft_strlen(str1) + ft_strlen(str2);
+	result_str = malloc(sizeof (char) * (tot_length + 1));
+	if (!result_str || (!str1 && !str2))
 		return (NULL);
-	while (++count > -1 && first_string[count])
-		result_string[count] = first_string[count];
+	while (++count > -1 && str1[count])
+		result_str[count] = str1[count];
 	aux_index = count;
 	count = -1;
-	while (++count > -1 && second_string[count])
-		result_string[count + aux_index] = second_string[count];
-	result_string[total_length] = '\0';
-	return (result_string);
+	while (++count > -1 && str2[count])
+		result_str[count + aux_index] = str2[count];
+	result_str[tot_length] = '\0';
+	return (result_str);
 }
 
-void	*going_free(char *file_to_free, char *buffer_to_return)
+void	*going_free(char *fltofree, char *buftoreturn)
 {
-	if (file_to_free)
-		free(file_to_free);
-	return (buffer_to_return);
+	if (fltofree)
+		free(fltofree);
+	return (buftoreturn);
 }

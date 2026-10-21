@@ -6,22 +6,22 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:19 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 11:00:15 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 11:25:20 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strchr(const char *str, int chrFind)
+char	*ft_strchr(const char *str, int chrfind)
 {
 	char	*pointer;
 
 	if (!str)
 		return (NULL);
 	pointer = (char *)str;
-	while (*pointer && *pointer != chrFind)
+	while (*pointer && *pointer != chrfind)
 		pointer++;
-	if (*pointer == chrFind)
+	if (*pointer == chrfind)
 		return (pointer);
 	return (NULL);
 }
