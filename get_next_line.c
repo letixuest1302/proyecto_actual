@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 12:53:57 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 12:54:00 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 15:35:29 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*join(char *pack, char *read_now, int by_read)
 
 	read_now[by_read] = '\0';
 	if (!pack)
-		temp = ft_substr(read_now, 0, ft_strlen(read_now));
+		temp = ft_substr(read_now, ft_strlen(read_now));
 	else
 		temp = going_free(pack, ft_strjoin(pack, read_now));
 	if (!temp)
@@ -35,9 +35,9 @@ static char	*gline(char *pack)
 		return (NULL);
 	nlfinder = ft_strchr(pack, '\n');
 	if (nlfinder)
-		lnow = ft_substr(pack, 0, 1 + nlfinder - pack);
+		lnow = ft_substr(pack, 1 + nlfinder - pack);
 	else
-		lnow = ft_substr(pack, 0, ft_strlen(pack));
+		lnow = ft_substr(pack, ft_strlen(pack));
 	if (!lnow)
 	{
 		free(pack);
@@ -60,7 +60,7 @@ static char	*nline(char *pack)
 	{
 		if (*excess == '\n')
 			excess++;
-		excess = ft_substr(excess, 0, ft_strlen(excess));
+		excess = ft_substr(excess, ft_strlen(excess));
 	}
 	free(pack);
 	return (excess);
@@ -107,4 +107,21 @@ char	*get_next_line(int fd)
 	lnow = gline(pack);
 	pack = nline(pack);
 	return (lnow);
+}
+
+
+#include <fcntl.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int     fd;
+    char    *line;
+
+    fd = open("prueba.txt", O_RDONLY);
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    close(fd);
+    return (0);
 }
