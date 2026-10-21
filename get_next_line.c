@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 12:53:57 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 16:25:14 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/21 16:40:41 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,11 @@ int main(void)
     close(fd);
     return (0);
 }
+
+fd = open("prueba.txt", O_RDONLY);
+	line = get_next_line(fd);
+	printf("%s", line);
+	free(line);
+    close(fd);
+    return (0);
 */
