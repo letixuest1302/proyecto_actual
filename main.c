@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 10:55:30 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/22 11:49:06 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/22 16:19:06 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main(void)
     int     fd;
     char    *line;
 
-    fd = open("prueba.txt", O_RDONLY);
     fd = open("prueba.txt", O_RDONLY);
 	line = get_next_line(fd);
 	printf("%s", line);
