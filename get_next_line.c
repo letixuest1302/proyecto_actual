@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 12:53:57 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 16:40:41 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/22 13:05:34 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*gline(char *pack)
 
 	if (!pack || !pack[0])
 		return (NULL);
-	nlfinder = ft_strchr(pack, '\n');
+	nlfinder = ft_strchr(pack, TILL_CHAR);
 	if (nlfinder)
 		lnow = ft_substr(pack, 1 + nlfinder - pack);
 	else
@@ -50,15 +50,15 @@ static char	*nline(char *pack)
 {
 	char	*excess;
 
-	if (!pack[0] || (pack[0] == '\n' && !pack[1]))
+	if (!pack[0] || (pack[0] == TILL_CHAR && !pack[1]))
 	{
 		free(pack);
 		return (NULL);
 	}
-	excess = ft_strchr(pack, '\n');
+	excess = ft_strchr(pack, TILL_CHAR);
 	if (excess)
 	{
-		if (*excess == '\n')
+		if (*excess == TILL_CHAR)
 			excess++;
 		excess = ft_substr(excess, ft_strlen(excess));
 	}
@@ -87,7 +87,7 @@ static char	*reader(int fd, char *pack)
 			return (NULL);
 		}
 		pack = join(pack, tempbrick, by_read);
-		if (!pack || ft_strchr(pack, '\n'))
+		if (!pack || ft_strchr(pack, TILL_CHAR))
 			return (going_fre(tempbrick, pack));
 	}
 	free(tempbrick);
@@ -108,29 +108,3 @@ char	*get_next_line(int fd)
 	pack = nline(pack);
 	return (lnow);
 }
-/*
-#include <fcntl.h>
-#include <stdio.h>
-
-int main(void)
-{
-    int     fd;
-    char    *line;
-
-    fd = open("prueba.txt", O_RDONLY);
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        printf("%s", line);
-        free(line);
-    }
-    close(fd);
-    return (0);
-}
-
-fd = open("prueba.txt", O_RDONLY);
-	line = get_next_line(fd);
-	printf("%s", line);
-	free(line);
-    close(fd);
-    return (0);
-*/

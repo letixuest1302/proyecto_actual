@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:07 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 16:21:57 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/22 13:06:15 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	*gline(char *pack)
 
 	if (!pack || !pack[0])
 		return (NULL);
-	newlinepos = ft_strchr(pack, '\n');
+	newlinepos = ft_strchr(pack, TILL_CHAR);
 	if (newlinepos)
 		extractedline = ft_substr(pack, 1 + newlinepos - pack);
 	else
@@ -53,15 +53,15 @@ static char	*nline(char *pack)
 {
 	char	*remaindertxt;
 
-	if (!pack[0] || (pack[0] == '\n' && !pack[1]))
+	if (!pack[0] || (pack[0] == TILL_CHAR && !pack[1]))
 	{
 		free(pack);
 		return (NULL);
 	}
-	remaindertxt = ft_strchr(pack, '\n');
+	remaindertxt = ft_strchr(pack, TILL_CHAR);
 	if (remaindertxt)
 	{
-		if (*remaindertxt == '\n')
+		if (*remaindertxt == TILL_CHAR)
 			remaindertxt++;
 		remaindertxt = ft_substr(remaindertxt, ft_strlen(remaindertxt));
 	}
@@ -89,7 +89,7 @@ static char	*reader(int fd, char *pack)
 			return (going_fre(pack, NULL));
 		}
 		pack = join(pack, read_buffer, by_read);
-		if (!pack || ft_strchr(pack, '\n'))
+		if (!pack || ft_strchr(pack, TILL_CHAR))
 			return (going_fre(read_buffer, pack));
 	}
 	free(read_buffer);

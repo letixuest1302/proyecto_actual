@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:51:43 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/21 16:22:19 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/22 13:04:33 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 2
 # endif
+
+# define TILL_CHAR '\n'
 
 size_t	ft_strlen(const char *str);
 
