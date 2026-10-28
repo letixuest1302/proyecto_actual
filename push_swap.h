@@ -6,7 +6,7 @@
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 10:00:00 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/28 10:29:35 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/10/28 10:35:10 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ typedef struct s_node
 /* error.c */
 void	free_stack(t_node **stack);
 void	free_split(char **split);
-int	error(t_node **stack_a, char **split);
+int		error(t_node **stack_a, char **split);
 
 /* parse.c */
-int	numbers(char *str);
-int	duplicate(t_node *stack, int n);
-int	add_back(t_node **stack, int n);
+int		numbers(char *str);
+int		duplicate(t_node *stack, int n);
+int		add_back(t_node **stack, int n);
 void	assign_index(t_node *stack_a);
 long	ft_atol(const char *str);
 
 /* parse_args.c */
-int	parse_args(int argc, char **argv, t_node **stack);
+int		parse_args(int argc, char **argv, t_node **stack);
 
 /* operations */
 void	sa(t_node **stack_a);
@@ -54,8 +54,8 @@ void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
 
 /* sorting */
-int	stack_size(t_node *stack);
-int	is_sorted(t_node *stack);
+int		stack_size(t_node *stack);
+int		is_sorted(t_node *stack);
 void	sort_three(t_node **a);
 void	sort_small(t_node **a, t_node **b);
 void	push_swap(t_node **a, t_node **b);
