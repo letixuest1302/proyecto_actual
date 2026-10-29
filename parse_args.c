@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 10:00:00 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/28 10:29:24 by lesainz          ###   ########.fr       */
+/*   Created: 2026/10/27 14:54:35 by acornia           #+#    #+#             */
+/*   Updated: 2026/10/29 13:12:33 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,26 @@ static int	parse_array(char **split, t_node **stack)
 	return (1);
 }
 
-int	parse_args(int argc, char **argv, t_node **stack)
+int	parse_args(int argc, char **argv, int start, t_node **stack)
 {
 	char	**split;
-	int		ok;
 
-	if (argc == 2)
+	if (argc - start == 1)
 	{
-		split = ft_split(argv[1], ' ');
-		if (!split)
+		split = ft_split(argv[start], ' ');
+		if (!split || !split[0])
 			return (0);
-		ok = (split[0] != NULL) && parse_array(split, stack);
+		if (!parse_array(split, stack))
+		{
+			free_split(split);
+			return (0);
+		}
 		free_split(split);
-		return (ok);
 	}
-	return (parse_array(argv + 1, stack));
+	else
+	{
+		if (!parse_array(argv + start, stack))
+			return (0);
+	}
+	return (1);
 }

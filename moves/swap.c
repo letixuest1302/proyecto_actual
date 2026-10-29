@@ -3,22 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 10:00:00 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/28 10:30:03 by lesainz          ###   ########.fr       */
+/*   Created: 2026/10/27 10:52:24 by acornia           #+#    #+#             */
+/*   Updated: 2026/10/29 13:12:33 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	swap(t_node **stack)
 {
 	int	tmp_value;
 	int	tmp_index;
 
-	if (!*stack || !(*stack)->next)
-		return ;
 	tmp_value = (*stack)->value;
 	tmp_index = (*stack)->index;
 	(*stack)->value = (*stack)->next->value;

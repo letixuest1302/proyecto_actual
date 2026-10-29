@@ -1,51 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   Rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 10:00:00 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/28 10:29:41 by lesainz          ###   ########.fr       */
+/*   Created: 2026/10/27 11:40:11 by acornia           #+#    #+#             */
+/*   Updated: 2026/10/28 15:1:49 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	reverserotate(t_node **stack)
+static void	rotate(t_node **stack)
 {
+	t_node	*first;
 	t_node	*last;
-	t_node	*prev;
 
-	if (!*stack || !(*stack)->next)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
+	first = *stack;
+	*stack = (*stack)->next;
 	last = *stack;
-	prev = NULL;
 	while (last->next != NULL)
-	{
-		prev = last;
 		last = last->next;
-	}
-	prev->next = NULL;
-	last->next = *stack;
-	*stack = last;
+	last->next = first;
+	first->next = NULL;
 }
 
-void	rra(t_node **stack_a)
+void	ra(t_node **stack_a)
 {
-	reverserotate(stack_a);
-	write(1, "rra\n", 4);
+	rotate(stack_a);
+	write(1, "ra\n", 3);
 }
 
-void	rrb(t_node **stack_b)
+void	rb(t_node **stack_b)
 {
-	reverserotate(stack_b);
-	write(1, "rrb\n", 4);
+	rotate(stack_b);
+	write(1, "rb\n", 3);
 }
 
-void	rrr(t_node **stack_a, t_node **stack_b)
+void	rr(t_node **stack_a, t_node **stack_b)
 {
-	reverserotate(stack_a);
-	reverserotate(stack_b);
-	write(1, "rrr\n", 4);
+	rotate(stack_a);
+	rotate(stack_b);
+	write(1, "rr\n", 3);
 }
