@@ -6,11 +6,11 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 11:52:31 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 13:12:33 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/29 13:16:38 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	is_sorted(t_node *stack)
 {

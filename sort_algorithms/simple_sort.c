@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 11:43:55 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/29 13:12:33 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/29 13:16:37 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	sort_three(t_node **stack_a)
 	first = (*stack_a)->index;
 	second = (*stack_a)->next->index;
 	third = (*stack_a)->next->next->index;
-
 	if (first > second && second < third && first < third)
 		sa(stack_a);
 	else if (first > second && second > third)

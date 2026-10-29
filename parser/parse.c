@@ -6,11 +6,11 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 12:14:37 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/29 13:12:33 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/29 13:16:37 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	numbers(char *str)
 {

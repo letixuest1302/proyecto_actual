@@ -6,11 +6,11 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 13:20:04 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 13:12:34 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/29 13:14:15 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_stack(t_node *stack)
 {
