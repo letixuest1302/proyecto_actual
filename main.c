@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 11:43:36 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 13:15:56 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/29 16:20:44 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
+
 
 static int	is_flag(char *flag)
 {
@@ -37,8 +39,6 @@ static int	handle_args(int argc, char **argv, t_node **stack, char **flag)
 		return (0);
 	return (1);
 }
-
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:39:15 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 13:16:37 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/29 15:56:57 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	sort_stack(t_node **stack_a, t_node **stack_b, char *flag)
 		complex_sort(stack_a, stack_b);
 	else if (flag && ft_strcmp(flag, "--adaptative") == 0)
 		adaptative(stack_a, stack_b);
-	adaptative(stack_a, stack_b);
+	else
+		adaptative(stack_a, stack_b);
 }
 
 int	ft_strcmp(const char *flag, const char *str)
