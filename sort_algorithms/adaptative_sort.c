@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adaptative_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:39:15 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/04 10:52:23 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/11/04 11:57:34 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ static	void	run_adaptative(t_node **stack_a, t_node **stack_b,
 	disorder = disorder_index(*stack_a);
 	if (disorder < 0.2f)
 	{
-		set_bench_info(bench, "Adaptative", "O(n)");
+		set_bench_info(bench, "Adaptive", "O(n²)");
 		simple_sort(stack_a, stack_b, bench);
 	}
 	else if (disorder < 0.5f)
 	{
-		set_bench_info(bench, "Adaptative", "O(n√n)");
+		set_bench_info(bench, "Adaptive", "O(n√n)");
 		medium_sort(stack_a, stack_b, bench);
 	}
 	else
 	{
-		set_bench_info(bench, "Adaptative", "O(n log n)");
+		set_bench_info(bench, "Adaptive", "O(n log n)");
 		complex_sort(stack_a, stack_b, bench);
 	}
 }
@@ -53,7 +53,7 @@ void	select_algorithm(t_node **stack_a, t_node **stack_b,
 		bench->disorder = disorder;
 	if (flag && ft_strcmp(flag, "--simple") == 0)
 	{
-		set_bench_info(bench, "Simple", "O(n)");
+		set_bench_info(bench, "Simple", "O(n²)");
 		simple_sort(stack_a, stack_b, bench);
 	}
 	else if (flag && ft_strcmp(flag, "--medium") == 0)

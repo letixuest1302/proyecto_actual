@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 12:29:01 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/04 10:53:32 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/11/04 11:13:24 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_bench
 	float	disorder;
 	char	*strategy;
 	char	*complexity;
+	char	*flag;
 	int		sa;
 	int		sb;
 	int		ss;
@@ -92,7 +93,6 @@ void	ft_putstr_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	print_bench(t_bench *bench);
 /*Herramientas del main*/
-int		handle_args(int argc, char **argv, t_node **stack,
-			char **flag, t_bench *bench);
+int		handle_args(int argc, char **argv, t_node **stack, t_bench *bench);
 
 #endif

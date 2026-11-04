@@ -6,7 +6,7 @@
 /*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 11:52:15 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/03 15:40:26 by acornia & l      ###   ########.fr       */
+/*   Updated: 2026/11/04 11:10:55 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ static int	reverserotate(t_node **stack)
 
 void	rra(t_node **stack_a, t_bench *bench)
 {
-	if (reverserotate(stack_a))
-		write(1, "rra\n", 4);
+	if (!reverserotate(stack_a))
+		return ;
+	write(1, "rra\n", 4);
 	if (bench && bench->enabled)
 	{
 		bench->rra++;
@@ -45,8 +46,9 @@ void	rra(t_node **stack_a, t_bench *bench)
 
 void	rrb(t_node **stack_b, t_bench *bench)
 {
-	if (reverserotate(stack_b))
-		write(1, "rrb\n", 4);
+	if (!reverserotate(stack_b))
+		return ;
+	write(1, "rrb\n", 4);
 	if (bench && bench->enabled)
 	{
 		bench->rrb++;
@@ -61,8 +63,9 @@ void	rrr(t_node **stack_a, t_node **stack_b, t_bench *bench)
 
 	done_a = reverserotate(stack_a);
 	done_b = reverserotate(stack_b);
-	if (done_a && done_b)
-		write(1, "rrr\n", 4);
+	if (!done_a && !done_b)
+		return ;
+	write(1, "rrr\n", 4);
 	if (bench && bench->enabled)
 	{
 		bench->rrr++;

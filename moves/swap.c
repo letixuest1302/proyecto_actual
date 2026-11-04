@@ -6,7 +6,7 @@
 /*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 10:52:24 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/03 15:39:26 by acornia & l      ###   ########.fr       */
+/*   Updated: 2026/11/04 11:12:54 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ static int	swap(t_node **stack)
 
 void	sa(t_node **stack_a, t_bench *bench)
 {
-	if (swap(stack_a))
-		write(1, "sa\n", 3);
+	if (!swap(stack_a))
+		return ;
+	write(1, "sa\n", 3);
 	if (bench && bench->enabled)
 	{
 		bench->sa++;
@@ -41,8 +42,9 @@ void	sa(t_node **stack_a, t_bench *bench)
 
 void	sb(t_node **stack_b, t_bench *bench)
 {
-	if (swap(stack_b))
-		write(1, "sb\n", 3);
+	if (!swap(stack_b))
+		return ;
+	write(1, "sb\n", 3);
 	if (bench && bench->enabled)
 	{
 		bench->sb++;
@@ -57,8 +59,9 @@ void	ss(t_node **stack_a, t_node **stack_b, t_bench *bench)
 
 	done_a = swap(stack_a);
 	done_b = swap(stack_b);
-	if (done_a && done_b)
-		write(1, "ss\n", 3);
+	if (!done_a && !done_b)
+		return ;
+	write(1, "ss\n", 3);
 	if (bench && bench->enabled)
 	{
 		bench->ss++;

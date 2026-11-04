@@ -6,7 +6,7 @@
 /*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 11:52:31 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/30 12:30:48 by acornia & l      ###   ########.fr       */
+/*   Updated: 2026/11/04 11:39:26 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,29 @@ int	is_sorted(t_node *stack)
 
 float	disorder_index(t_node *stack)
 {
-	float	total_pairs;
-	float	mistakes;
+	long	total_pairs;
+	long	mistakes;
 	t_node	*current;
 	t_node	*compare;
 
 	if (!stack || !stack->next)
 		return (0.0f);
-	mistakes = 0.0f;
-	total_pairs = 0.0f;
+	mistakes = 0.0;
+	total_pairs = 0.0;
 	current = stack;
 	while (current)
 	{
 		compare = current->next;
 		while (compare)
 		{
-			total_pairs += 1.0f;
+			total_pairs++;
 			if (current->value > compare->value)
-				mistakes += 1.0f;
+				mistakes++;
 			compare = compare->next;
 		}
 		current = current->next;
 	}
-	if (total_pairs == 0.0f)
+	if (total_pairs == 0)
 		return (0.0f);
-	return (mistakes / total_pairs);
+	return ((float)mistakes / (float)total_pairs);
 }
