@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 12:58:05 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/04 10:52:38 by lesainz          ###   ########.fr       */
+/*   Updated: 2026/11/04 13:19:23 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	medium_sort(t_node **stack_a, t_node **stack_b, t_bench *bench)
 	int	size;
 	int	chunk_size;
 
+	if (handle_small_cases(stack_a, stack_b, bench))
+		return ;
 	size = stack_size(*stack_a);
 	if (size <= 100)
 		chunk_size = 15;

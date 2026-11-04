@@ -6,7 +6,7 @@
 /*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 13:00:59 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/03 15:46:42 by acornia & l      ###   ########.fr       */
+/*   Updated: 2026/11/04 13:14:35 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	complex_sort(t_node **stack_a, t_node **stack_b, t_bench *bench)
 	int	size;
 	int	max_bits;
 
+	if (handle_small_cases(stack_a, stack_b, bench))
+		return ;
 	i = 0;
 	max_bits = get_max_bits(*stack_a);
 	while (i < max_bits)

@@ -6,7 +6,7 @@
 /*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 10:08:19 by acornia & l       #+#    #+#             */
-/*   Updated: 2026/11/03 11:21:00 by acornia & l      ###   ########.fr       */
+/*   Updated: 2026/11/04 13:11:29 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,14 @@ int	stack_size(t_node *stack)
 		stack = stack->next;
 	}
 	return (size);
+}
+
+int	ft_strcmp(const char *flag, const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (flag[i] == str[i] && flag[i] != '\0')
+		i++;
+	return (flag[i] - str[i]);
 }

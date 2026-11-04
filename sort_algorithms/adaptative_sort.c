@@ -6,7 +6,7 @@
 /*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:39:15 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/04 11:57:34 by acornia & l      ###   ########.fr       */
+/*   Updated: 2026/11/04 13:11:36 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,4 @@ void	adaptative_sort(t_node **stack_a, t_node **stack_b,
 	select_algorithm(stack_a, stack_b, flag, bench);
 	if (bench && bench->enabled)
 		print_bench(bench);
-}
-
-int	ft_strcmp(const char *flag, const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (flag[i] == str[i] && flag[i] != '\0')
-		i++;
-	return (flag[i] - str[i]);
 }

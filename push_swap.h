@@ -6,7 +6,7 @@
 /*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 12:29:01 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/04 11:13:24 by acornia & l      ###   ########.fr       */
+/*   Updated: 2026/11/04 13:18:29 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	adaptative_sort(t_node **stack_a, t_node **stack_b,
 void	simple_sort(t_node **stack_a, t_node **stack_b, t_bench *bench);
 void	medium_sort(t_node **stack_a, t_node **stack_b, t_bench *bench);
 void	complex_sort(t_node **stack_a, t_node **stack_b, t_bench *bench);
+int		handle_small_cases(t_node **stack_a, t_node **stack_b, t_bench *bench);
+void	sort_three(t_node **stack_a, t_bench *bench);
 /*Herramientas para los algoritmos*/
 int		index_max_pos(t_node *stack);
 int		index_min_pos(t_node *stack);
