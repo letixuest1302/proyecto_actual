@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 14:54:35 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 13:16:38 by acornia          ###   ########.fr       */
+/*   Updated: 2026/11/03 13:03:42 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	parse_args(int argc, char **argv, int start, t_node **stack)
 	if (argc - start == 1)
 	{
 		split = ft_split(argv[start], ' ');
-		if (!split || !split[0])
+		if (!split)
 			return (0);
-		if (!parse_array(split, stack))
+		if (!split[0] || !parse_array(split, stack))
 		{
 			free_split(split);
 			return (0);

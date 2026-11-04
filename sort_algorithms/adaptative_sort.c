@@ -3,44 +3,81 @@
 /*                                                        :::      ::::::::   */
 /*   adaptative_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:39:15 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 15:56:57 by acornia          ###   ########.fr       */
+/*   Updated: 2026/11/04 10:52:23 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_strcmp(const char *flag, const char *str);
+static void	set_bench_info(t_bench *bench, char *strategy, char *complexity)
+{
+	if (!bench)
+		return ;
+	bench->strategy = strategy;
+	bench->complexity = complexity;
+}
 
-static	void	adaptative(t_node **stack_a, t_node **stack_b)
+static	void	run_adaptative(t_node **stack_a, t_node **stack_b,
+					t_bench *bench)
 {
 	float	disorder;
 
 	disorder = disorder_index(*stack_a);
 	if (disorder < 0.2f)
-		simple_sort(stack_a, stack_b);
+	{
+		set_bench_info(bench, "Adaptative", "O(n)");
+		simple_sort(stack_a, stack_b, bench);
+	}
 	else if (disorder < 0.5f)
-		medium_sort(stack_a, stack_b);
+	{
+		set_bench_info(bench, "Adaptative", "O(n√n)");
+		medium_sort(stack_a, stack_b, bench);
+	}
 	else
-		complex_sort(stack_a, stack_b);
+	{
+		set_bench_info(bench, "Adaptative", "O(n log n)");
+		complex_sort(stack_a, stack_b, bench);
+	}
 }
 
-void	sort_stack(t_node **stack_a, t_node **stack_b, char *flag)
+void	select_algorithm(t_node **stack_a, t_node **stack_b,
+			char *flag, t_bench *bench)
+{
+	float	disorder;
+
+	disorder = disorder_index(*stack_a);
+	if (bench)
+		bench->disorder = disorder;
+	if (flag && ft_strcmp(flag, "--simple") == 0)
+	{
+		set_bench_info(bench, "Simple", "O(n)");
+		simple_sort(stack_a, stack_b, bench);
+	}
+	else if (flag && ft_strcmp(flag, "--medium") == 0)
+	{
+		set_bench_info(bench, "Medium", "O(n√n)");
+		medium_sort(stack_a, stack_b, bench);
+	}
+	else if (flag && ft_strcmp(flag, "--complex") == 0)
+	{
+		set_bench_info(bench, "Complex", "O(n log n)");
+		complex_sort(stack_a, stack_b, bench);
+	}
+	else
+		run_adaptative(stack_a, stack_b, bench);
+}
+
+void	adaptative_sort(t_node **stack_a, t_node **stack_b,
+			char *flag, t_bench *bench)
 {
 	if (!stack_a || !*stack_a)
 		return ;
-	if (flag && ft_strcmp(flag, "--simple") == 0)
-		simple_sort(stack_a, stack_b);
-	else if (flag && ft_strcmp(flag, "--medium") == 0)
-		medium_sort(stack_a, stack_b);
-	else if (flag && ft_strcmp(flag, "--complex") == 0)
-		complex_sort(stack_a, stack_b);
-	else if (flag && ft_strcmp(flag, "--adaptative") == 0)
-		adaptative(stack_a, stack_b);
-	else
-		adaptative(stack_a, stack_b);
+	select_algorithm(stack_a, stack_b, flag, bench);
+	if (bench && bench->enabled)
+		print_bench(bench);
 }
 
 int	ft_strcmp(const char *flag, const char *str)

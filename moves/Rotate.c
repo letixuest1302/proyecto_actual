@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 11:40:11 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/28 15:1:49 by lesainz          ###   ########.fr       */
+/*   Created: 2026/10/30 12:30:52 by acornia & l       #+#    #+#             */
+/*   Updated: 2026/11/03 15:39:16 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,29 @@ static int	rotate(t_node **stack)
 	return (1);
 }
 
-void	ra(t_node **stack_a)
+void	ra(t_node **stack_a, t_bench *bench)
 {
 	if (rotate(stack_a))
 		write(1, "ra\n", 3);
+	if (bench && bench->enabled)
+	{
+		bench->ra++;
+		bench->total_ops++;
+	}
 }
 
-void	rb(t_node **stack_b)
+void	rb(t_node **stack_b, t_bench *bench)
 {
 	if (rotate(stack_b))
 		write(1, "rb\n", 3);
+	if (bench && bench->enabled)
+	{
+		bench->rb++;
+		bench->total_ops++;
+	}
 }
 
-void	rr(t_node **stack_a, t_node **stack_b)
+void	rr(t_node **stack_a, t_node **stack_b, t_bench *bench)
 {
 	int	done_a;
 	int	done_b;
@@ -50,8 +60,9 @@ void	rr(t_node **stack_a, t_node **stack_b)
 	done_b = rotate(stack_b);
 	if (done_a && done_b)
 		write(1, "rr\n", 3);
-	else if (done_a)
-		write(1, "ra\n", 3);
-	else if (done_b)
-		write(1, "rb\n", 3);
+	if (bench && bench->enabled)
+	{
+		bench->rr++;
+		bench->total_ops++;
+	}
 }

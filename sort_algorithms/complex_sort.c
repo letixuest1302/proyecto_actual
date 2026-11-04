@@ -3,17 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 13:00:59 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 13:16:37 by acornia          ###   ########.fr       */
+/*   Updated: 2026/11/03 15:46:42 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	complex_sort(t_node **stack_a, t_node **stack_b)
+static int	get_max_bits(t_node *stack)
 {
-	write(1, "esto es complex\n", 16);
-	simple_sort(stack_a, stack_b);
+	int	max_bits;
+	int	max_index;
+
+	max_index = stack_size(stack) - 1;
+	max_bits = 0;
+	while ((max_index >> max_bits) > 0)
+		max_bits++;
+	return (max_bits);
+}
+
+void	complex_sort(t_node **stack_a, t_node **stack_b, t_bench *bench)
+{
+	int	i;
+	int	j;
+	int	size;
+	int	max_bits;
+
+	i = 0;
+	max_bits = get_max_bits(*stack_a);
+	while (i < max_bits)
+	{
+		j = 0;
+		size = stack_size(*stack_a);
+		while (j < size)
+		{
+			if (((*stack_a)->index >> i) & 1)
+				ra(stack_a, bench);
+			else
+				pb(stack_a, stack_b, bench);
+			j++;
+		}
+		while (*stack_b)
+			pa(stack_a, stack_b, bench);
+		i++;
+	}
 }

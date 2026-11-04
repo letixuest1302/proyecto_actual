@@ -3,17 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 12:58:05 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 13:16:37 by acornia          ###   ########.fr       */
+/*   Updated: 2026/11/04 10:52:38 by lesainz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	medium_sort(t_node **stack_a, t_node **stack_b)
+static void	push_chunks(t_node **stack_a, t_node **stack_b,
+				int chunk, t_bench *bench)
 {
-	write(1, "Esto es medium\n", 15);
-	simple_sort(stack_a, stack_b);
+	int	pushed;
+
+	pushed = 0;
+	while (*stack_a)
+	{
+		if ((*stack_a)->index <= pushed)
+		{
+			pb(stack_a, stack_b, bench);
+			rb(stack_b, bench);
+			pushed++;
+		}
+		else if ((*stack_a)->index <= (pushed + chunk))
+		{
+			pb(stack_a, stack_b, bench);
+			pushed++;
+		}
+		else
+			ra(stack_a, bench);
+	}
+}
+
+static void	push_back(t_node **stack_a, t_node **stack_b, t_bench *bench)
+{
+	int	max_pos;
+	int	size;
+
+	while (*stack_b)
+	{
+		max_pos = index_max_pos(*stack_b);
+		size = stack_size(*stack_b);
+		if (max_pos <= size / 2)
+		{
+			while (max_pos > 0)
+			{
+				rb(stack_b, bench);
+				max_pos--;
+			}
+		}
+		else
+		{
+			while (max_pos < size)
+			{
+				rrb(stack_b, bench);
+				max_pos++;
+			}
+		}
+		pa(stack_a, stack_b, bench);
+	}
+}
+
+void	medium_sort(t_node **stack_a, t_node **stack_b, t_bench *bench)
+{
+	int	size;
+	int	chunk_size;
+
+	size = stack_size(*stack_a);
+	if (size <= 100)
+		chunk_size = 15;
+	else
+		chunk_size = 30;
+	push_chunks(stack_a, stack_b, chunk_size, bench);
+	push_back(stack_a, stack_b, bench);
 }

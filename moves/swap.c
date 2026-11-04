@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 10:52:24 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 16:07:07 by acornia          ###   ########.fr       */
+/*   Updated: 2026/11/03 15:39:26 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,40 @@ static int	swap(t_node **stack)
 	return (1);
 }
 
-void	sa(t_node **stack_a)
+void	sa(t_node **stack_a, t_bench *bench)
 {
 	if (swap(stack_a))
 		write(1, "sa\n", 3);
+	if (bench && bench->enabled)
+	{
+		bench->sa++;
+		bench->total_ops++;
+	}
 }
 
-void	sb(t_node **stack_b)
+void	sb(t_node **stack_b, t_bench *bench)
 {
 	if (swap(stack_b))
 		write(1, "sb\n", 3);
+	if (bench && bench->enabled)
+	{
+		bench->sb++;
+		bench->total_ops++;
+	}
 }
 
-void	ss(t_node **stack_a, t_node **stack_b)
+void	ss(t_node **stack_a, t_node **stack_b, t_bench *bench)
 {
 	int	done_a;
 	int	done_b;
-	
+
 	done_a = swap(stack_a);
 	done_b = swap(stack_b);
 	if (done_a && done_b)
 		write(1, "ss\n", 3);
-	else if (done_a)
-		write(1, "sa\n", 3);
-	else if (done_b)
-		write(1, "sb\n", 3);
+	if (bench && bench->enabled)
+	{
+		bench->ss++;
+		bench->total_ops++;
+	}
 }

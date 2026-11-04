@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 12:14:37 by lesainz           #+#    #+#             */
-/*   Updated: 2026/10/29 13:16:37 by acornia          ###   ########.fr       */
+/*   Updated: 2026/11/03 13:15:32 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ long	ft_atol(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		sum = (sum * 10) + (str[i] - '0');
+		if (sum > (long)INT_MAX + 1)
+			return (LONG_MAX * sign);
 		i++;
 	}
 	return (sum * sign);

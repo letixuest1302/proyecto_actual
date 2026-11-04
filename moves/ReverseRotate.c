@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReverseRotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 11:52:15 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/29 16:08:22 by acornia          ###   ########.fr       */
+/*   Updated: 2026/11/03 15:40:26 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,29 @@ static int	reverserotate(t_node **stack)
 	return (1);
 }
 
-void	rra(t_node **stack_a)
+void	rra(t_node **stack_a, t_bench *bench)
 {
 	if (reverserotate(stack_a))
 		write(1, "rra\n", 4);
+	if (bench && bench->enabled)
+	{
+		bench->rra++;
+		bench->total_ops++;
+	}
 }
 
-void	rrb(t_node **stack_b)
+void	rrb(t_node **stack_b, t_bench *bench)
 {
 	if (reverserotate(stack_b))
 		write(1, "rrb\n", 4);
+	if (bench && bench->enabled)
+	{
+		bench->rrb++;
+		bench->total_ops++;
+	}
 }
 
-void	rrr(t_node **stack_a, t_node **stack_b)
+void	rrr(t_node **stack_a, t_node **stack_b, t_bench *bench)
 {
 	int	done_a;
 	int	done_b;
@@ -53,8 +63,9 @@ void	rrr(t_node **stack_a, t_node **stack_b)
 	done_b = reverserotate(stack_b);
 	if (done_a && done_b)
 		write(1, "rrr\n", 4);
-	else if (done_a)
-		write(1, "rra\n", 4);
-	else if (done_b)
-		write(1, "rrb\n", 4);
+	if (bench && bench->enabled)
+	{
+		bench->rrr++;
+		bench->total_ops++;
+	}
 }
