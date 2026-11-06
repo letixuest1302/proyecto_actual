@@ -4,10 +4,10 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = moves/Push.c moves/ReverseRotate.c moves/Rotate.c moves/swap.c parser/bench_utils.c \
-		parser/error.c parser/is_sorted.c parser/parse_args.c parser/parse.c sort_algorithms/small_sort.c\
-		sort_algorithms/adaptative_sort.c sort_algorithms/complex_sort.c sort_algorithms/medium_sort.c \
-		sort_algorithms/simple_sort.c sort_algorithms/sort_utils.c split/split_utils.c split/split.c main_utils.c main.c
+SRCS = Moves/Push.c Moves/reverseRotate.c Moves/rotate.c Moves/swap.c \
+	Parser/bench_utils.c Parser/error.c Parser/is_sorted.c Parser/parse_args.c Parser/parse.c \
+	Sort_algorithms/adaptative_sort.c Sort_algorithms/complex_sort.c Sort_algorithms/medium_sort.c Sort_algorithms/simple_sort.c Sort_algorithms/small_sort.c \
+	Split/split_utils.c Split/split.c main_utils.c main.c Sort_algorithms/sort_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

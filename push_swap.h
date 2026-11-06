@@ -6,7 +6,7 @@
 /*   By: acornia & lesainz <acornia@student.42ma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 12:29:01 by acornia           #+#    #+#             */
-/*   Updated: 2026/11/04 13:18:29 by acornia & l      ###   ########.fr       */
+/*   Updated: 2026/11/06 12:44:58 by acornia & l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include "split/split.h"
+# include "Split/split.h"
 
 typedef struct s_node
 {

@@ -5,7 +5,9 @@ El proyecto **Push_swap** es un algoritmo de ordenación muy desafiante. Consist
 
 ## Instrucciones
 El proyecto incluye un `Makefile` con las reglas estándar. Para compilar el programa principal, ejecuta:
+
 Para compilar debes
+
 | Comando | Descripción |
 | :--- | :--- |
 | `make` | Compila la parte obligatoria y genera un ejecutable llamado 'push_swap'. Todas las funciones programadas en (.c) generan un archivo objeto (.o) correspondiente.|
