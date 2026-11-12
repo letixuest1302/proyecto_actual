@@ -3,11 +3,10 @@
 #                                                         :::      ::::::::    #
 #    ft_garden_name.py                                  :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lesainz <lesainz@student.42madrid.com      +#+  +:+       +#+         #
+#    By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/11/12 10:48:16 by lesainz           #+#    #+#              #
-#    Updated: 2026/11/12 10:48:18 by lesainz          ###   ########.fr        #
+#    Created: 2026/11/12 11:06:10 by lesainz           #+#    #+#              #
+#    Updated: 2026/11/12 11:06:11 by lesainz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
