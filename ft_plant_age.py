@@ -3,11 +3,10 @@
 #                                                         :::      ::::::::    #
 #    ft_plant_age.py                                    :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lesainz <lesainz@student.42madrid.com      +#+  +:+       +#+         #
+#    By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/12 10:53:10 by lesainz           #+#    #+#              #
-#    Updated: 2026/11/12 10:53:12 by lesainz          ###   ########.fr        #
+#    Updated: 2026/11/16 12:05:29 by lesainz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
