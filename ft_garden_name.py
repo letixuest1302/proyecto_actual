@@ -6,7 +6,7 @@
 #    By: lesainz <lesainz@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/12 10:48:16 by lesainz           #+#    #+#              #
-#    Updated: 2026/11/16 13:16:47 by lesainz          ###   ########.fr        #
+#    Updated: 2026/11/18 10:15:51 by lesainz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,3 +14,6 @@ def	ft_garden_name():
 	name = input("Enter garden name: ")
 	print(f"Garden: {name}")
 	print("Status: Growing well!")
+
+if __name__ == "__main__":
+    ft_garden_name(" platano ")
